@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parthiban Kumar — Data Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B1020;
+  --slate:#161C30;
+  --line:#232B45;
+  --mute:#8A94B0;
+  --paper:#E8ECF6;
+  --bronze:#C4713D;
+  --silver:#9BA7C4;
+  --gold:#D9A441;
+  --live:#4ADE80;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:'IBM Plex Sans',system-ui,sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+a{color:inherit}
+
+/* ---------- top bar ---------- */
+.bar{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:50;
+  background:rgba(11,16,32,.86);
+  backdrop-filter:blur(12px);
+}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.mark{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.mark b{color:var(--paper);font-weight:600}
+.nav{display:flex;gap:28px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.nav a{color:var(--mute);text-decoration:none;transition:color .2s}
+.nav a:hover,.nav a:focus-visible{color:var(--gold)}
+@media(max-width:720px){.nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:96px 0 72px;border-bottom:1px solid var(--line)}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:22px;
+}
+h1{
+  font-size:clamp(38px,6.2vw,68px);line-height:1.04;font-weight:700;
+  letter-spacing:-.025em;margin-bottom:24px;
+}
+h1 span{color:var(--mute);display:block;font-weight:400;font-size:.5em;letter-spacing:-.01em;margin-top:14px}
+.lede{font-size:18px;color:var(--silver);max-width:62ch;margin-bottom:36px}
+.links{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;
+  padding:11px 20px;border:1px solid var(--line);border-radius:2px;
+  text-decoration:none;transition:all .2s;background:transparent;
+}
+.btn:hover,.btn:focus-visible{border-color:var(--gold);color:var(--gold)}
+.btn.solid{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:600}
+.btn.solid:hover,.btn.solid:focus-visible{background:transparent;color:var(--gold)}
+
+/* ---------- signature: the pipeline ---------- */
+.pipe{padding:64px 0;border-bottom:1px solid var(--line);overflow-x:auto}
+.pipe-inner{display:flex;align-items:stretch;gap:0;min-width:760px}
+.node{flex:1;padding:22px 20px;border:1px solid var(--line);border-right:none;position:relative;background:var(--slate)}
+.node:last-child{border-right:1px solid var(--line)}
+.node::after{
+  content:'';position:absolute;right:-7px;top:50%;transform:translateY(-50%) rotate(45deg);
+  width:12px;height:12px;border-top:1px solid var(--line);border-right:1px solid var(--line);
+  background:var(--slate);z-index:2;
+}
+.node:last-child::after{display:none}
+.node-k{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.node-n{font-weight:600;font-size:15px;margin-bottom:4px}
+.node-d{font-size:12px;color:var(--mute);font-family:'IBM Plex Mono',monospace}
+.node.b{border-top:2px solid var(--bronze)}
+.node.s{border-top:2px solid var(--silver)}
+.node.g{border-top:2px solid var(--gold)}
+
+/* ---------- sections ---------- */
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+.sec-h{display:flex;align-items:baseline;gap:16px;margin-bottom:40px}
+.sec-n{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold);letter-spacing:.1em}
+h2{font-size:26px;font-weight:600;letter-spacing:-.015em}
+
+/* ---------- projects ---------- */
+.proj{border:1px solid var(--line);padding:30px;margin-bottom:20px;background:var(--slate);transition:border-color .2s}
+.proj:hover{border-color:#33405f}
+.proj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:14px}
+.proj h3{font-size:19px;font-weight:600;letter-spacing:-.01em}
+.status{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--live);white-space:nowrap;padding-top:4px}
+.status.wip{color:var(--mute)}
+.proj p{color:var(--silver);font-size:15px;margin-bottom:18px;max-width:70ch}
+.stack{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:4px 9px;border:1px solid var(--line);color:var(--mute);border-radius:2px}
+.proj-links{display:flex;gap:18px;font-family:'IBM Plex Mono',monospace;font-size:12px}
+.proj-links a{color:var(--gold);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
+.proj-links a:hover,.proj-links a:focus-visible{border-bottom-color:var(--gold)}
+
+/* ---------- skills ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.cell{background:var(--ink);padding:22px}
+.cell h4{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500}
+.cell p{font-size:14px;color:var(--silver);line-height:1.75}
+
+/* ---------- experience ---------- */
+.job{display:grid;grid-template-columns:180px 1fr;gap:28px;padding:24px 0;border-bottom:1px solid var(--line)}
+.job:last-child{border-bottom:none}
+.job-when{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--mute);padding-top:3px}
+.job h3{font-size:16px;font-weight:600;margin-bottom:3px}
+.job-co{font-size:14px;color:var(--gold);margin-bottom:10px}
+.job p{font-size:14px;color:var(--silver);max-width:66ch}
+@media(max-width:640px){.job{grid-template-columns:1fr;gap:8px}}
+
+/* ---------- footer ---------- */
+footer{padding:56px 0;text-align:center}
+footer p{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--mute);margin-bottom:18px}
+.fl{display:flex;gap:24px;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:13px;flex-wrap:wrap}
+.fl a{color:var(--silver);text-decoration:none;transition:color .2s}
+.fl a:hover,.fl a:focus-visible{color:var(--gold)}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="mark"><b>PARTHIBAN</b> KUMAR</div>
+    <nav class="nav">
+      <a href="#work">Projects</a>
+      <a href="#stack">Stack</a>
+      <a href="#exp">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Mississauga, Ontario · Open to work</div>
+    <h1>Data Engineer
+      <span>Eight years moving enterprise data. Now building on the lakehouse.</span>
+    </h1>
+    <p class="lede">I design and run production pipelines — batch ingestion, layered transformation, quality controls, and the boring operational work that keeps feeds landing on time. Previously retail and logistics at scale; currently building on Azure, Databricks and Delta Lake.</p>
+    <div class="links">
+      <a class="btn solid" href="#work">See the work</a>
+      <a class="btn" href="https://github.com/YOUR-USERNAME">GitHub</a>
+      <a class="btn" href="https://linkedin.com/in/parthibankumar2896">LinkedIn</a>
+      <a class="btn" href="resume.pdf">Résumé</a>
+    </div>
+  </div>
+</header>
+
+<div class="pipe">
+  <div class="wrap">
+    <div class="pipe-inner">
+      <div class="node">
+        <div class="node-k">Source</div>
+        <div class="node-n">NYC TLC</div>
+        <div class="node-d">parquet · 12 months</div>
+      </div>
+      <div class="node">
+        <div class="node-k">Orchestration</div>
+        <div class="node-n">Data Factory</div>
+        <div class="node-d">ForEach · parameterised</div>
+      </div>
+      <div class="node b">
+        <div class="node-k">Layer 01</div>
+        <div class="node-n">Bronze</div>
+        <div class="node-d">raw · immutable</div>
+      </div>
+      <div class="node s">
+        <div class="node-k">Layer 02</div>
+        <div class="node-n">Silver</div>
+        <div class="node-d">typed · deduplicated</div>
+      </div>
+      <div class="node g">
+        <div class="node-k">Layer 03</div>
+        <div class="node-n">Gold</div>
+        <div class="node-d">delta · aggregated</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-h"><span class="sec-n">01</span><h2>Projects</h2></div>
+
+    <article class="proj">
+      <div class="proj-top">
+        <h3>NYC Taxi Lakehouse</h3>
+        <span class="status">Live</span>
+      </div>
+      <p>End-to-end Azure pipeline over a year of NYC green taxi trips. Data Factory pulls monthly Parquet from the TLC endpoint into ADLS Gen2 via a parameterised ForEach; Databricks applies Medallion layering with PySpark; Delta Lake handles upserts and schema evolution. Access runs through Unity Catalog external locations backed by an Access Connector managed identity — no keys, no secrets in notebooks.</p>
+      <div class="stack">
+        <span class="chip">Azure Data Factory</span>
+        <span class="chip">ADLS Gen2</span>
+        <span class="chip">Databricks</span>
+        <span class="chip">PySpark</span>
+        <span class="chip">Delta Lake</span>
+        <span class="chip">Unity Catalog</span>
+      </div>
+      <div class="proj-links">
+        <a href="https://github.com/YOUR-USERNAME/nyc-taxi-lakehouse">Repository →</a>
+        <a href="https://github.com/YOUR-USERNAME/nyc-taxi-lakehouse#architecture">Architecture →</a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-top">
+        <h3>CSV Ingestion Framework</h3>
+        <span class="status">Live</span>
+      </div>
+      <p>Config-driven ingestion in plain Python, separated across configuration, reader and validation modules. Enforces schema, detects nulls and missing columns, and routes rejected records to a quarantine path instead of failing the batch — so bad input is inspectable rather than invisible.</p>
+      <div class="stack">
+        <span class="chip">Python</span>
+        <span class="chip">pandas</span>
+        <span class="chip">Data quality</span>
+      </div>
+      <div class="proj-links">
+        <a href="https://github.com/YOUR-USERNAME/csv-ingestion-pipeline">Repository →</a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-top">
+        <h3>Airflow Orchestration Layer</h3>
+        <span class="status wip">In progress</span>
+      </div>
+      <p>Rebuilding the taxi pipeline's control flow as an Airflow DAG to compare orchestration models: task dependencies, sensors waiting on file arrival, backfills across a date range, and failure behaviour when a mid-DAG task dies.</p>
+      <div class="stack">
+        <span class="chip">Apache Airflow</span>
+        <span class="chip">Docker</span>
+        <span class="chip">Python</span>
+      </div>
+      <div class="proj-links">
+        <a href="https://github.com/YOUR-USERNAME">Repository →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-h"><span class="sec-n">02</span><h2>Stack</h2></div>
+    <div class="grid">
+      <div class="cell">
+        <h4>Processing</h4>
+        <p>PySpark · Spark SQL · Databricks · Delta Lake · Photon · Medallion architecture</p>
+      </div>
+      <div class="cell">
+        <h4>Cloud</h4>
+        <p>Azure Data Factory · ADLS Gen2 · Unity Catalog · Entra ID · GCP Pub/Sub · AWS S3</p>
+      </div>
+      <div class="cell">
+        <h4>Warehousing</h4>
+        <p>Snowflake · Oracle · Teradata · DB2 · dimensional modelling · SCD handling</p>
+      </div>
+      <div class="cell">
+        <h4>Languages</h4>
+        <p>Python · SQL · PL/SQL · Bash · Korn shell</p>
+      </div>
+      <div class="cell">
+        <h4>Engineering</h4>
+        <p>Git · CI/CD · Azure DevOps · Agile · REST &amp; GraphQL integration</p>
+      </div>
+      <div class="cell">
+        <h4>Legacy depth</h4>
+        <p>Ab Initio GDE · EME · Co&gt;Operating System · Conduct&gt;It · Control Center</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="exp">
+  <div class="wrap">
+    <div class="sec-h"><span class="sec-n">03</span><h2>Experience</h2></div>
+
+    <div class="job">
+      <div class="job-when">Dec 2022 — now</div>
+      <div>
+        <h3>Consultant · Data Integration Specialist</h3>
+        <div class="job-co">Capgemini UK · Client: John Lewis Partnership</div>
+        <p>Design and support production ETL/ELT pipelines moving high-volume retail transactional data through staged raw, transformation and curated layers. Own the operational side end to end — monitoring, root cause analysis, remediation — against SLA-bound business feeds.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when">Jul 2021 — Dec 2022</div>
+      <div>
+        <h3>Consultant · Data Integration Engineer</h3>
+        <div class="job-co">Capgemini India · Client: John Lewis Partnership</div>
+        <p>Built Snowflake ingestion workflows through staging and target layers, integrated cloud storage pipelines across GCP and AWS S3, and handled multi-format sources — Avro, JSON, CSV, fixed-width — with schema variation across distributed platforms.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when">Sep 2018 — Jul 2021</div>
+      <div>
+        <h3>Associate Consultant</h3>
+        <div class="job-co">Atos Syntel · Client: FedEx Corporation</div>
+        <p>Built ETL workflows across Oracle, Teradata and DB2 with complex transformations, lookups and slowly changing dimension handling. Developed SQL and PL/SQL for extraction and validation, and integrated REST and GraphQL endpoints into warehouse loads.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <p>Mississauga, Ontario · Canadian Permanent Resident · Open to data engineering roles</p>
+    <div class="fl">
+      <a href="mailto:jparthibankumar@gmail.com">jparthibankumar@gmail.com</a>
+      <a href="https://linkedin.com/in/parthibankumar2896">LinkedIn</a>
+      <a href="https://github.com/YOUR-USERNAME">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
