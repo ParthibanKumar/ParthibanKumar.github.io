@@ -10,7 +10,7 @@ const PROFILE = {
   location: "Mississauga, Ontario",
   tagline: "Eight years moving enterprise data. Now building on the lakehouse.",
   lede: "I design and run production pipelines — batch ingestion, layered transformation, quality controls, and the operational work that keeps feeds landing on time. Retail and logistics at scale before this; building on Azure, Databricks and Delta Lake now.",
-  photo: "photo.jpg",
+  photo: "photo.JPG",
   github: "https://github.com/parthibankumar",
   linkedin: "https://linkedin.com/in/parthibankumar2896",
   email: "jparthibankumar@gmail.com",
