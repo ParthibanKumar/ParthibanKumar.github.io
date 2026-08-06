@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 760" width="1180" height="760" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="ard" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#cbd5e1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="1180" height="760" fill="#ffffff"/>
+
+  <!-- ============ HEADER ============ -->
+  <text x="40" y="46" font-size="27" font-weight="700" fill="#0f172a">Payments Analytics Platform on Snowflake</text>
+  <text x="40" y="72" font-size="15" fill="#64748b">Cross-cloud Medallion architecture · SCD Type 2 star schema · card transaction data</text>
+
+  <!-- ============ TOP FLOW ============ -->
+
+  <!-- Source CSV -->
+  <g>
+    <rect x="40" y="112" width="76" height="76" rx="10" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <path d="M62 132 h22 l10 10 v26 a2 2 0 0 1 -2 2 h-30 a2 2 0 0 1 -2 -2 v-34 a2 2 0 0 1 2 -2 z" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M84 132 v10 h10" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>
+    <text x="78" y="178" text-anchor="middle" font-size="10" font-weight="700" fill="#3b82f6">CSV</text>
+    <text x="78" y="208" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Source files</text>
+    <text x="78" y="226" text-anchor="middle" font-size="11" fill="#64748b">card transactions</text>
+  </g>
+
+  <line x1="124" y1="150" x2="182" y2="150" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="153" y="142" text-anchor="middle" font-size="10.5" fill="#94a3b8">land</text>
+
+  <!-- ADLS -->
+  <g>
+    <rect x="190" y="112" width="76" height="76" rx="10" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <ellipse cx="228" cy="137" rx="19" ry="7" fill="none" stroke="#0078d4" stroke-width="2"/>
+    <path d="M209 137 v26 a19 7 0 0 0 38 0 v-26" fill="none" stroke="#0078d4" stroke-width="2"/>
+    <path d="M209 150 a19 7 0 0 0 38 0" fill="none" stroke="#0078d4" stroke-width="1.5" opacity="0.55"/>
+    <text x="228" y="208" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">ADLS Gen2</text>
+    <text x="228" y="226" text-anchor="middle" font-size="11" fill="#64748b">Azure · landing/</text>
+  </g>
+
+  <line x1="274" y1="150" x2="332" y2="150" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="303" y="142" text-anchor="middle" font-size="10.5" fill="#94a3b8">read</text>
+
+  <!-- External stage -->
+  <g>
+    <rect x="340" y="112" width="76" height="76" rx="10" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1.5"/>
+    <path d="M362 140 h32 M362 150 h32 M362 160 h32" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="378" cy="130" r="6" fill="none" stroke="#0284c7" stroke-width="2"/>
+    <text x="378" y="208" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">External stage</text>
+    <text x="378" y="226" text-anchor="middle" font-size="11" fill="#64748b">pointer · no data</text>
+  </g>
+
+  <line x1="424" y1="150" x2="482" y2="150" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="453" y="142" text-anchor="middle" font-size="10.5" fill="#94a3b8">COPY</text>
+
+  <!-- Snowflake -->
+  <g>
+    <rect x="490" y="112" width="76" height="76" rx="10" fill="#ecfeff" stroke="#a5f3fc" stroke-width="1.5"/>
+    <g stroke="#29b5e8" stroke-width="2.2" stroke-linecap="round">
+      <line x1="528" y1="128" x2="528" y2="172"/>
+      <line x1="509" y1="139" x2="547" y2="161"/>
+      <line x1="509" y1="161" x2="547" y2="139"/>
+      <line x1="522" y1="132" x2="534" y2="132"/>
+      <line x1="522" y1="168" x2="534" y2="168"/>
+    </g>
+    <text x="528" y="208" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Snowflake</text>
+    <text x="528" y="226" text-anchor="middle" font-size="11" fill="#64748b">AWS · eu-west-2</text>
+  </g>
+
+  <line x1="574" y1="150" x2="632" y2="150" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="603" y="142" text-anchor="middle" font-size="10.5" fill="#94a3b8">model</text>
+
+  <!-- Star schema -->
+  <g>
+    <rect x="640" y="112" width="76" height="76" rx="10" fill="#fefce8" stroke="#fde68a" stroke-width="1.5"/>
+    <g stroke="#ca8a04" stroke-width="1.6">
+      <line x1="678" y1="150" x2="678" y2="128"/>
+      <line x1="678" y1="150" x2="678" y2="172"/>
+      <line x1="678" y1="150" x2="659" y2="139"/>
+      <line x1="678" y1="150" x2="697" y2="161"/>
+      <line x1="678" y1="150" x2="659" y2="161"/>
+      <line x1="678" y1="150" x2="697" y2="139"/>
+    </g>
+    <circle cx="678" cy="150" r="6" fill="#ca8a04"/>
+    <g fill="#fef3c7" stroke="#ca8a04" stroke-width="1.4">
+      <circle cx="678" cy="126" r="4"/><circle cx="678" cy="174" r="4"/>
+      <circle cx="657" cy="138" r="4"/><circle cx="699" cy="162" r="4"/>
+      <circle cx="657" cy="162" r="4"/><circle cx="699" cy="138" r="4"/>
+    </g>
+    <text x="678" y="208" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Star schema</text>
+    <text x="678" y="226" text-anchor="middle" font-size="11" fill="#64748b">1 fact · 6 dims</text>
+  </g>
+
+  <line x1="724" y1="150" x2="782" y2="150" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="753" y="142" text-anchor="middle" font-size="10.5" fill="#94a3b8">serve</text>
+
+  <!-- BI -->
+  <g>
+    <rect x="790" y="112" width="76" height="76" rx="10" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+    <g stroke="#16a34a" stroke-width="2" stroke-linecap="round">
+      <line x1="812" y1="168" x2="812" y2="152"/>
+      <line x1="824" y1="168" x2="824" y2="138"/>
+      <line x1="836" y1="168" x2="836" y2="146"/>
+      <line x1="848" y1="168" x2="848" y2="130"/>
+    </g>
+    <line x1="806" y1="172" x2="854" y2="172" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+    <text x="828" y="208" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Reporting</text>
+    <text x="828" y="226" text-anchor="middle" font-size="11" fill="#64748b">semantic views</text>
+  </g>
+
+  <!-- Orchestration callout on the right -->
+  <g>
+    <rect x="900" y="106" width="240" height="88" rx="10" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+    <text x="920" y="132" font-size="13" font-weight="700" fill="#7e22ce">Orchestration</text>
+    <text x="920" y="152" font-size="11.5" fill="#6b21a8">Task DAG · fail-fast validation</text>
+    <text x="920" y="170" font-size="11.5" fill="#6b21a8">Stored procedures · run audit log</text>
+    <text x="920" y="186" font-size="11.5" fill="#6b21a8">Snowflake Scripting + Snowpark</text>
+  </g>
+
+  <!-- storage integration annotation -->
+  <path d="M228 244 v10 h150 v-10" fill="none" stroke="#cbd5e1" stroke-width="1.4"/>
+  <line x1="303" y1="254" x2="303" y2="262" stroke="#cbd5e1" stroke-width="1.4"/>
+  <text x="303" y="278" text-anchor="middle" font-size="11" fill="#94a3b8">storage integration · Entra ID service principal · no secrets in code</text>
+
+  <!-- ============ MEDALLION ============ -->
+  <rect x="40" y="288" width="1100" height="212" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <text x="66" y="320" font-size="15" font-weight="700" fill="#0f172a">Medallion layers</text>
+  <text x="222" y="320" font-size="12" fill="#64748b">idempotent MERGE · hash-based change detection · full lineage on every row</text>
+
+  <!-- Bronze -->
+  <rect x="66" y="338" width="334" height="140" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="1.8"/>
+  <text x="88" y="366" font-size="14" font-weight="700" fill="#9a3412">Bronze</text>
+  <text x="88" y="386" font-size="11.5" fill="#9a3412">raw · all VARCHAR · append-only</text>
+  <line x1="88" y1="398" x2="378" y2="398" stroke="#fed7aa" stroke-width="1"/>
+  <text x="88" y="418" font-size="11.5" fill="#7c2d12">RAW_TRANSACTIONS</text>
+  <text x="88" y="436" font-size="11.5" fill="#7c2d12">RAW_TRANSACTIONS_REJECTS</text>
+  <text x="88" y="462" font-size="11" fill="#c2410c">file name · row number · content hash · load role</text>
+
+  <line x1="404" y1="408" x2="428" y2="408" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar)"/>
+
+  <!-- Silver -->
+  <rect x="432" y="338" width="334" height="140" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.8"/>
+  <text x="454" y="366" font-size="14" font-weight="700" fill="#334155">Silver</text>
+  <text x="454" y="386" font-size="11.5" fill="#334155">typed · deduplicated · conformed</text>
+  <line x1="454" y1="398" x2="744" y2="398" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="454" y="418" font-size="11.5" fill="#1e293b">TRANSACTIONS · CUSTOMERS · ACCOUNTS</text>
+  <text x="454" y="436" font-size="11.5" fill="#1e293b">CARDS · MERCHANTS · BRANCHES</text>
+  <text x="454" y="462" font-size="11" fill="#475569">ROW_NUMBER dedup · TRY_TO_* casts · quarantine</text>
+
+  <line x1="770" y1="408" x2="794" y2="408" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar)"/>
+
+  <!-- Gold -->
+  <rect x="798" y="338" width="316" height="140" rx="10" fill="#fefce8" stroke="#eab308" stroke-width="1.8"/>
+  <text x="820" y="366" font-size="14" font-weight="700" fill="#854d0e">Gold</text>
+  <text x="820" y="386" font-size="11.5" fill="#854d0e">star schema · surrogate keys</text>
+  <line x1="820" y1="398" x2="1092" y2="398" stroke="#fef08a" stroke-width="1"/>
+  <text x="820" y="418" font-size="11.5" fill="#713f12">FCT_TRANSACTIONS</text>
+  <text x="820" y="436" font-size="11.5" fill="#713f12">DIM_CUSTOMER (SCD2) · DATE · ACCOUNT</text>
+  <text x="820" y="452" font-size="11.5" fill="#713f12">CARD · MERCHANT · BRANCH</text>
+  <text x="820" y="470" font-size="11" fill="#a16207">unknown members · temporal join</text>
+
+  <!-- ============ GOVERNANCE ============ -->
+  <rect x="40" y="520" width="1100" height="118" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5 4"/>
+
+  <path d="M74 546 l16 -7 l16 7 v14 c0 11 -7 20 -16 24 c-9 -4 -16 -13 -16 -24 z" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="90" cy="562" r="4" fill="#475569"/>
+
+  <text x="122" y="552" font-size="15" font-weight="700" fill="#0f172a">Governance</text>
+  <text x="122" y="572" font-size="11.5" fill="#64748b">access roles vs functional roles · no credentials in source control</text>
+
+  <g font-size="11.5" fill="#334155">
+    <rect x="500" y="540" width="142" height="34" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="571" y="561" text-anchor="middle">RBAC hierarchy</text>
+
+    <rect x="654" y="540" width="142" height="34" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="725" y="561" text-anchor="middle">Dynamic masking</text>
+
+    <rect x="808" y="540" width="142" height="34" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="879" y="561" text-anchor="middle">Row access policies</text>
+
+    <rect x="962" y="540" width="152" height="34" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="1038" y="561" text-anchor="middle">Time Travel · cloning</text>
+  </g>
+
+  <text x="74" y="612" font-size="11.5" fill="#64748b">Zero-copy clone for isolated dev · 90-day Time Travel for recovery · PII masked at query time, single stored copy</text>
+
+  <!-- ============ FOOTER ============ -->
+  <text x="40" y="678" font-size="12" fill="#475569">
+    <tspan font-weight="700" fill="#0f172a">Data quality —</tspan>
+    <tspan>  Bronze: structural rejects captured via VALIDATE  ·  Silver: business-rule quarantine with reason codes  ·  Gold: control-total reconciliation between layers</tspan>
+  </text>
+  <text x="40" y="702" font-size="12" fill="#475569">
+    <tspan font-weight="700" fill="#0f172a">Python —</tspan>
+    <tspan>  Snowpark procedures for validation and per-table error isolation  ·  UDF for MCC categorisation</tspan>
+  </text>
+  <text x="40" y="726" font-size="12" fill="#475569">
+    <tspan font-weight="700" fill="#0f172a">Idempotency —</tspan>
+    <tspan>  COPY load metadata  ·  MERGE on natural keys  ·  anti-join reject capture  ·  every step safe to retry</tspan>
+  </text>
+
+</svg>
